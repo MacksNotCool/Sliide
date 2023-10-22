@@ -11,10 +11,11 @@
 <body>
     <!--url: https://macksnotcool.github.io/Sliide/ -->
     <p id="devicename">Devicename</p>
-    <p>test page v9</p>
+    <p>test page v10</p>
 
     <script>
-        devicename.innerText = navigator.userAgentData.platform;
+        var deviceTitle = navigator.userAgentData.platform + " Device #" + Math.floor(Math.random() * 1000);;
+        devicename.innerText = deviceTitle;
     </script>
 </body>
 </html>
