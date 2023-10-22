@@ -4,15 +4,15 @@
     "version": "1.0.0",
     "display": "standalone",
     "display_override": ["borderless"],
-    "start_url": "index.html?utm_source=homescreen",
+    "start_url": "index.html",
     "scope" : "./",
     "icons": [
         {
-            "src": "./assets/img/placeholder.png",
-            "sizes": "1080x1080",
+            "src": "./assets/img/placeholderLQ.png",
+            "sizes": "32x32",
             "type": "image/png"
         }
     ],
     "theme_color": "#ff0000",
-    "background_color": "#ffee0080"
+    "background_color": "#ffee00"
  }
