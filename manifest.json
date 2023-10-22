@@ -1,7 +1,7 @@
 {
     "id": "/",
     "scope": "/",
-    "start_url": "/",
+    "start_url": "https://macksnotcool.github.io/Sliide/",
     "name": "Simple borderless IWA",
     "version": "1.0.0",
     "display": "standalone",
