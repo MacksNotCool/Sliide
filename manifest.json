@@ -1,11 +1,7 @@
 {
     "name": "Sliide",
-    "short_name" : "Sliide",
-    "version": "1.0.0",
     "display": "standalone",
-    "display_override": ["borderless"],
-    "start_url": "index.html",
-    "scope" : "./",
+    "display_override": ["window-controls-overlay"],
     "icons": [
         {
             "src": "./assets/img/placeholderLQ.png",
