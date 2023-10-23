@@ -10,10 +10,13 @@
         
     </style>
     <script>
-        if (window.matchMedia('(display-mode: standalone)').matches || window.matchMedia('(display-mode: window-controls-overlay)').matches || window.matchMedia('(display-mode: fullscreen)').matches || window.navigator.standalone === true) {
-            // Run App
-            window.location.replace("./app.html");
-        }
+        window.addEventListener('load', (e) => {
+            if (window.matchMedia('(display-mode: standalone)').matches || window.matchMedia('(display-mode: window-controls-overlay)').matches || window.matchMedia('(display-mode: fullscreen)').matches || window.navigator.standalone === true) {
+                // Run App
+                window.location.replace("./app.html");
+            }
+        });
+        
 
         var install;
         window.addEventListener('beforeinstallprompt', (e) => {
