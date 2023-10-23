@@ -9,18 +9,10 @@
     <style>
         
     </style>
-</head>
-<body id="body">
-    <!--url: https://macksnotcool.github.io/Sliide/ -->
-    
-    <button id="installApp" onclick="install.prompt();">Install App</button>
-
     <script>
-        function onStart(){
-            if (window.matchMedia('(display-mode: standalone)').matches || window.matchMedia('(display-mode: window-controls-overlay)').matches || window.matchMedia('(display-mode: fullscreen)').matches || window.navigator.standalone === true) {
-                // Run App
-                window.location.replace("./app.html");
-            }
+        if (window.matchMedia('(display-mode: standalone)').matches || window.matchMedia('(display-mode: window-controls-overlay)').matches || window.matchMedia('(display-mode: fullscreen)').matches || window.navigator.standalone === true) {
+            // Run App
+            window.location.replace("./app.html");
         }
 
         var install;
@@ -29,10 +21,17 @@
         })
 
         window.addEventListener('appinstalled', (e) => {
-            onStart();
+            window.location = './app.html';
         })
 
     </script>
+</head>
+<body id="body">
+    <!--url: https://macksnotcool.github.io/Sliide/ -->
+    
+    <button id="installApp" onclick="install.prompt();">Install App</button>
+
+    
     <script>
         
 
