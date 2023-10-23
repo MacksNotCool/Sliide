@@ -16,9 +16,11 @@
     <button id="installApp" onclick="install.prompt();">Install App</button>
 
     <script>
-        if (window.matchMedia('(display-mode: standalone)').matches || window.matchMedia('(display-mode: window-controls-overlay)').matches || window.matchMedia('(display-mode: fullscreen)').matches || window.navigator.standalone === true) {
-            // Run App
-            window.location.replace("./app.html");
+        function onStart(){
+            if (window.matchMedia('(display-mode: standalone)').matches || window.matchMedia('(display-mode: window-controls-overlay)').matches || window.matchMedia('(display-mode: fullscreen)').matches || window.navigator.standalone === true) {
+                // Run App
+                window.location.replace("./app.html");
+            }
         }
 
         var install;
@@ -27,7 +29,7 @@
         })
 
         window.addEventListener('appinstalled', (e) => {
-            window.location.replace("./app.html");
+            onStart();
         })
 
     </script>
