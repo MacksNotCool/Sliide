@@ -6,6 +6,7 @@
     <title></title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
     <style>
+        
         body {
             -webkit-user-select: none;
             -ms-user-select: none;
@@ -14,6 +15,11 @@
             padding:0px;
             min-width:100%;
             min-height:100%;
+            background-image: url("assets/img/background-placeholder.png");
+            background-size:cover;
+
+            -webkit-app-region: drag;
+            app-region: drag;
         }
         #topbar{
             left: env(titlebar-area-x, 0);
@@ -21,37 +27,62 @@
             width: env(titlebar-area-width, 100%);
             height: env(titlebar-area-height, 33px);
             
-            -webkit-app-region: drag;
-            app-region: drag;
+            
 
-            background-color: #eeeeee;
+            background-color: #eeeeee00;
             display: flex;
             flex-direction: row;
+            align-self: center;
+            align-items: center;
         }
 
         #devicename{
+            font-size:14px;
+            -webkit-user-select: text;
+            -ms-user-select: text;
+            user-select: text;
+            -webkit-app-region: no-drag;
+            app-region: no-drag;
+            margin-left:15px;
         }
         i{
-            font-size:18px;
+            font-size:10px;
+            padding:5px;
+        }
+        @media all and (display-mode: standalone), (display-mode:fullscreen) {
+            #topbar{
+                justify-content: center;
+            }
         }
     </style>
+    <link rel="stylesheet" href="assets/main.css">
 </head>
     <body oncontextmenu="return false;">
         <div id="topbar">
-            <div id="devicename">Devicename</div><i class="bi-pencil"></i>
+            <div id="devicename" class="single-line" contenteditable="true">Devicename</div><i class="bi-pencil-fill"></i>
         </div>
         
-        <p>test page v10</p>
-        <p>app</p>
 
         <script>
+            /*if (localStorage.getItem("deviceName") != null){
+                deviceTitle = '';
+            }*/
+            
             var deviceTitle = navigator.userAgentData.platform + " Device #" + Math.floor(Math.random() * 1000);;
             devicename.innerText = deviceTitle;
 
-            window.addEventListener('resize', function(){
+            
+            if (navigator.userAgentData.mobile){
+                //phone
+            } else {
+                //desktop
+                /*window.addEventListener('resize', function(){
+                    window.resizeTo(500, 500);
+                });*/
                 window.resizeTo(500, 500);
-            });
-            window.resizeTo(500, 500);
+                
+            }
+            
         </script>
     </body>
 </html>
