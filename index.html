@@ -1,21 +1,49 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
+<head id="head">
     <meta charset="UTF-8">
-    <title>Sliide</title>
+    <title id="title"></title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="manifest" href="./manifest.webmanifest">
     <link rel="stylesheet" href="./assets/main.css">
-    
-</head>
-<body>
-    <!--url: https://macksnotcool.github.io/Sliide/ -->
-    <p id="devicename">Devicename</p>
-    <p>test page v10</p>
+    <style>
+        iframe{
+            width:100%;
+            height:100%;
+            border:0;
 
+            position:fixed;
+            top:0px;
+            left:0px;
+            -webkit-app-region: drag;
+            app-region: drag;
+        }
+
+        @media all and (display-mode: standalone), (display-mode: window-controls-overlay), (display-mode: fullscreen) {
+            /*app*/
+            #website{
+                display:none;
+            }
+        }
+
+        @media all and (display-mode: browser){
+            /*website*/
+            #app{
+                display:none;
+            }
+        }
+    </style>
+</head>
+<body id="body">
+    <!--url: https://macksnotcool.github.io/Sliide/ -->
+    <iframe id="app" src="app.html"></iframe>
+
+    <iframe id="website" src="website.html"></iframe>
     <script>
-        var deviceTitle = navigator.userAgentData.platform + " Device #" + Math.floor(Math.random() * 1000);;
-        devicename.innerText = deviceTitle;
+        window.addEventListener('resize', function(){
+            window.resizeTo(500, 500);
+        });
+        window.resizeTo(500, 500);
     </script>
 </body>
 </html>

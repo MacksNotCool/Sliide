@@ -1,16 +1,16 @@
 {
-    "name": "Install Control PWA",
-    "short_name": "Install Control",
+    "name": "Sliide App",
+    "short_name": "Sliide",
     "start_url": "./",
-    "background_color": "#546e7a",
-    "theme_color": "#29434e",
-    "display_override": ["fullscreen", "minimal-ui"],
+    "background_color": "#eeeeee",
+    "theme_color": "#eeeeee",
     "display": "standalone",
+    "display_override": ["window-controls-overlay", "fullscreen"],
     "icons": [
       {
         "src": "./assets/img/placeholder.png",
         "type": "image/png",
         "sizes": "192x192"
-          }
+      }
     ]
   }
