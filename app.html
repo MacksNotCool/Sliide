@@ -29,7 +29,8 @@
             
             
 
-            background-color: #eeeeee00;
+            background-color: #00000040;
+            backdrop-filter: blur(15px);
             display: flex;
             flex-direction: row;
             align-self: center;
@@ -52,6 +53,7 @@
         @media all and (display-mode: standalone), (display-mode:fullscreen) {
             #topbar{
                 justify-content: center;
+                background-color:#0000;
             }
         }
     </style>
@@ -59,17 +61,21 @@
 </head>
     <body oncontextmenu="return false;">
         <div id="topbar">
-            <div id="devicename" class="single-line" contenteditable="true">Devicename</div><i class="bi-pencil-fill"></i>
+            <div id="devicename" class="single-line" contenteditable="true" oninput="localStorage.setItem('DeviceName', this.innerText)">Devicename</div><i class="bi-pencil-fill"></i>
         </div>
         
 
         <script>
-            /*if (localStorage.getItem("deviceName") != null){
-                deviceTitle = '';
-            }*/
-            
-            var deviceTitle = navigator.userAgentData.platform + " Device #" + Math.floor(Math.random() * 1000);;
+            var deviceTitle;
+            if (localStorage.hasOwnProperty("DeviceName")){
+                deviceTitle = localStorage.getItem("DeviceName");
+            } else {
+                deviceTitle = navigator.userAgentData.platform + " Device #" + Math.floor(Math.random() * 1000);;
+                localStorage.setItem("DeviceName", deviceTitle);
+            }
             devicename.innerText = deviceTitle;
+            
+            
 
             
             if (navigator.userAgentData.mobile){
