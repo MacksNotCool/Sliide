@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>App version of page</title>
+    <title></title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
     <style>
         body {
@@ -17,26 +17,21 @@
         }
         #topbar{
             left: env(titlebar-area-x, 0);
-            /* Position the right of this box to the titlebar-area-x variable, otherwise fallback to 0. */
             top: env(titlebar-area-y, 0);
-            /* Set the width of the titlebar, to the variable of titlebar-area-width. Otherwise, fallback to 100% width. */
             width: env(titlebar-area-width, 100%);
-            /* Make the height of the title bar the titlebar-area-height variable, otherwise fallback to 33px high. */
             height: env(titlebar-area-height, 33px);
             
-            
-            /* Pre-fix app-region during standardization process */
             -webkit-app-region: drag;
             app-region: drag;
 
             background-color: #eeeeee;
+            display: flex;
+            flex-direction: row;
         }
 
         #devicename{
-            display: inline-block;
         }
         i{
-            display:inline-block;
             font-size:18px;
         }
     </style>
@@ -52,6 +47,11 @@
         <script>
             var deviceTitle = navigator.userAgentData.platform + " Device #" + Math.floor(Math.random() * 1000);;
             devicename.innerText = deviceTitle;
+
+            window.addEventListener('resize', function(){
+                window.resizeTo(500, 500);
+            });
+            window.resizeTo(500, 500);
         </script>
     </body>
 </html>

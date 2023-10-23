@@ -2,48 +2,38 @@
 <html lang="en">
 <head id="head">
     <meta charset="UTF-8">
-    <title id="title"></title>
+    <title> Sliide - Sliide fiiles</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="manifest" href="./manifest.webmanifest">
     <link rel="stylesheet" href="./assets/main.css">
     <style>
-        iframe{
-            width:100%;
-            height:100%;
-            border:0;
-
-            position:fixed;
-            top:0px;
-            left:0px;
-            -webkit-app-region: drag;
-            app-region: drag;
-        }
-
-        @media all and (display-mode: standalone), (display-mode: window-controls-overlay), (display-mode: fullscreen) {
-            /*app*/
-            #website{
-                display:none;
-            }
-        }
-
-        @media all and (display-mode: browser){
-            /*website*/
-            #app{
-                display:none;
-            }
-        }
+        
     </style>
 </head>
 <body id="body">
     <!--url: https://macksnotcool.github.io/Sliide/ -->
-    <iframe id="app" src="app.html"></iframe>
+    
+    <button id="installApp" onclick="install.prompt();">Install App</button>
 
-    <iframe id="website" src="website.html"></iframe>
     <script>
-        window.addEventListener('resize', function(){
-            window.resizeTo(500, 500);
-        });
-        window.resizeTo(500, 500);
+        if (window.matchMedia('(display-mode: standalone)').matches || window.matchMedia('(display-mode: window-controls-overlay)').matches || window.matchMedia('(display-mode: fullscreen)').matches || window.navigator.standalone === true) {
+            // Run App
+            window.location.replace("./app.html");
+        }
+
+        var install;
+        window.addEventListener('beforeinstallprompt', (e) => {
+            install = e;
+        })
+
+        window.addEventListener('appinstalled', (e) => {
+            window.location.replace("./app.html");
+        })
+
+    </script>
+    <script>
+        
+
     </script>
 </body>
 </html>
